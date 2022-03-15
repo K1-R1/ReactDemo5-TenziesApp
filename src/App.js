@@ -1,6 +1,7 @@
 import Die from "./component/Die"
 import { useState, useEffect } from "react"
 import { nanoid } from "nanoid"
+import Confetti from "react-confetti"
 
 export default function App() {
 
@@ -52,12 +53,18 @@ export default function App() {
 
     return (
         <main>
+            {tenzies && <Confetti />}
             <h1 className="title">Tenzies</h1>
             <p className="instructions">Roll until all dice are the same. Click a die to lock its value.</p>
             <div className="dice-container">
                 {diceElements}
             </div>
-            <button onClick={rollDice} className="roll-dice">Roll dice</button>
+            <button
+                onClick={rollDice}
+                className="roll-dice"
+            >
+                {tenzies ? "New Game" : "Roll dice"}
+            </button>
         </main>
     )
 }
