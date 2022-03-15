@@ -20,7 +20,7 @@ export default function App() {
         setDice(allNewDice())
     }
 
-    const diceElements = dice.map(die => <Die value={die.value} />)
+    const diceElements = dice.map(die => <Die value={die.value} isHeld={die.isHeld} />)
 
     return (
         <main>
